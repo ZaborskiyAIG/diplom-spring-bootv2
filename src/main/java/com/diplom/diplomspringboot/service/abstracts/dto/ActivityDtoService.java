@@ -1,4 +1,4 @@
-package com.diplom.diplomspringboot.service.abstracts;
+package com.diplom.diplomspringboot.service.abstracts.dto;
 
 import com.diplom.diplomspringboot.models.dto.ActivityDto;
 import com.diplom.diplomspringboot.models.entity.Activity;
@@ -9,7 +9,9 @@ public interface ActivityDtoService {
 
     List<ActivityDto> getActivities();
 
-    void addActivity(Activity activity);
+    List<ActivityDto> addActivity(Activity activity);
+
+    void updateActivity(Activity activity);
 
     void deleteActivity(Long id);
 

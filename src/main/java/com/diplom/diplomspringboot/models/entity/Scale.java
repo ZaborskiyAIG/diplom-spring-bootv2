@@ -21,12 +21,12 @@ public class Scale {
     private String name;
 
     @Column
-    private String firstElement;
+    private Integer firstElement;
 
     @Column
-    private String lastElement;
+    private Integer lastElement;
 
     @Column
-    private String step;
+    private Integer step;
 
 }

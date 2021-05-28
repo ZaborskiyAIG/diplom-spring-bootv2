@@ -3,6 +3,7 @@ package com.diplom.diplomspringboot.models.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,20 +25,17 @@ public class Project {
     @ManyToMany(mappedBy = "projects")
     private Set<User> users;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Activity.class)
-    @JoinColumn(name = "activity_id", nullable = false)
-    private Activity activity;
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    private List<Activity> activities;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Formula.class)
-    @JoinColumn(name = "formula_id", nullable = false)
-    private Formula formula;
+    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Pattern.class, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "project_pattern", joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "pattern_id"))
+    private Set<Pattern> patterns;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Scale.class)
-    @JoinColumn(name = "scale_id", nullable = false)
-    private Scale scale;
+//    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Criteria.class)
+//    @JoinColumn(name = "criteria_id", nullable = false)
+//    private Criteria criteria;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Criteria.class)
-    @JoinColumn(name = "criteria_id", nullable = false)
-    private Criteria criteria;
 
 }

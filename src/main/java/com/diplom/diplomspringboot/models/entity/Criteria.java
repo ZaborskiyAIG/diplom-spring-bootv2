@@ -19,4 +19,11 @@ public class Criteria {
 
     @Column
     private String name;
+
+    @Column
+    private String abbreviation;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pattern_id")
+    private Pattern pattern;
 }

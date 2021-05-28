@@ -18,7 +18,7 @@ public class Rating {
     private Long id;
 
     @Column
-    private String mark;
+    private Integer mark;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Criteria.class)
     @JoinColumn(name = "criteria_id", nullable = false)

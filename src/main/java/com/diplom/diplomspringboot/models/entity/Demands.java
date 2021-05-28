@@ -19,6 +19,9 @@ public class Demands {
     private Long id;
 
     @Column
+    private Integer rank;
+
+    @Column
     private String name;
 
     @Column
@@ -29,7 +32,11 @@ public class Demands {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Activity.class)
-    @JoinColumn(name = "activity_id", nullable = true)
+    @JoinColumn(name = "activity_id")
     private Activity activity;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = ActivityFilial.class)
+    @JoinColumn(name = "activity_filial_id")
+    private ActivityFilial activityFilial;
 }

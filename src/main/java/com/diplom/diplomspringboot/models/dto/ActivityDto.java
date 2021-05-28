@@ -17,8 +17,14 @@ public class ActivityDto {
         this.name = name;
     }
 
+    public ActivityDto(Long id, Long mainId, String name) {
+        this.id = id;
+        this.mainId = mainId;
+        this.name = name;
+    }
+
     private Long id;
+    private Long mainId;
     private String name;
     private List<DemandsDto> demands;
-
 }

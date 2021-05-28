@@ -11,6 +11,7 @@ import lombok.*;
 public class DemandsDto {
 
     private Long id;
+    private Integer rank;
     private String name;
     private String color;
     private String description;
