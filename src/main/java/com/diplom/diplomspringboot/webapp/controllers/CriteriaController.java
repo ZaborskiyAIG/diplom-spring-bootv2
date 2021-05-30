@@ -97,7 +97,7 @@ public class CriteriaController {
     @DeleteMapping("/{id}")
     public ResponseEntity<List<PatternDto>> deletePattern(@PathVariable("id") Long id) {
         Pattern pattern = patternService.getByKey(id);
-        pattern.getCriteria().forEach(x -> criteriaService.deleteWithCascadeIgnore(x.getId()));
+        pattern.getCriteria().forEach(x -> criteriaService.deleteWithCascadeEnableId(x.getId()));
         patternService.deleteWithCascadeEnableId(pattern.getId());
         return ResponseEntity.ok().body(patternConverter.toDto(patternService.getAll()));
     }

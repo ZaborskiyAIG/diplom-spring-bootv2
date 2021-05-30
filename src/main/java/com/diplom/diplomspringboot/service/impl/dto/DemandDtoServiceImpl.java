@@ -109,8 +109,10 @@ public class DemandDtoServiceImpl implements DemandDtoService {
 
     @Override
     @Transactional
+    //TODO исправить
     public void update(Demands demands) {
         demands.setActivity(dao.find(demands.getId()).getActivity());
+        demands.setActivityFilial(dao.find(demands.getId()).getActivityFilial());
         dao.update(demands);
     }
 

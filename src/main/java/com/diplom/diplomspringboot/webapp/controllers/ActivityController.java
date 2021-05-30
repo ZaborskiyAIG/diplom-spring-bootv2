@@ -3,6 +3,7 @@ package com.diplom.diplomspringboot.webapp.controllers;
 import com.diplom.diplomspringboot.models.converters.ActivityConverter;
 import com.diplom.diplomspringboot.models.dto.ActivityDto;
 import com.diplom.diplomspringboot.models.entity.Activity;
+import com.diplom.diplomspringboot.models.entity.Project;
 import com.diplom.diplomspringboot.service.abstracts.dto.ActivityDtoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -42,14 +42,17 @@ public class ActivityController {
 
     //TODO сделать создание activity к проекту, передавать к id
     @PostMapping("/activity")
-    public ResponseEntity<List<ActivityDto>> addActivity(@RequestBody ActivityDto dto, @RequestParam Long projectId) {
+    public ResponseEntity<List<ActivityDto>> addActivity(@RequestBody ActivityDto dto) {
         Activity activity = activityConverter.toActivity(dto);
         return ResponseEntity.ok(activityDtoService.addActivity(activity));
     }
 
+    //TODO сделать нормальный id проекта
     @PutMapping("/activity")
     public ResponseEntity<ActivityDto> putActivity(@RequestBody ActivityDto dto) {
         Activity activity = activityConverter.toActivity(dto);
+
+        activity.setProject(new Project(1L));
         activityDtoService.updateActivity(activity);
         return ResponseEntity.ok(activityConverter.toDto(activity));
     }

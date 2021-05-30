@@ -33,6 +33,10 @@ public class Project {
             inverseJoinColumns = @JoinColumn(name = "pattern_id"))
     private Set<Pattern> patterns;
 
+
+    public Project(Long id) {
+        this.id = id;
+    }
 //    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Criteria.class)
 //    @JoinColumn(name = "criteria_id", nullable = false)
 //    private Criteria criteria;
