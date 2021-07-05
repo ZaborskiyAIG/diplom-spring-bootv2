@@ -5,7 +5,6 @@ import com.diplom.diplomspringboot.models.dto.ActivityDto;
 import com.diplom.diplomspringboot.models.dto.DemandsDto;
 import com.diplom.diplomspringboot.models.entity.Activity;
 import com.diplom.diplomspringboot.models.entity.ActivityFilial;
-import com.diplom.diplomspringboot.models.entity.Demands;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

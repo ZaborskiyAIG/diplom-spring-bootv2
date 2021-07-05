@@ -27,7 +27,7 @@ public class RatingDaoImpl extends ReadWriteDaoImpl<Long, Rating> implements Rat
 
     @Override
     public List<Rating> getAllRatingByDemandId(Long id, Long patternId) {
-        return entityManager.createQuery("SELECT rating FROM Rating rating where rating.demands.id = :id and rating.criteria.pattern.id = :patternId", Rating.class)
+        return entityManager.createQuery("SELECT rating FROM Rating rating where rating.demands.id = :id and rating.criteria.pattern.id = :patternId order by rating.criteria.name ASC ", Rating.class)
                 .setParameter("id", id)
                 .setParameter("patternId", patternId)
                 .getResultList();

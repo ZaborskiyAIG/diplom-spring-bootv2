@@ -48,6 +48,11 @@ public class RatingServiceImpl extends ReadWriteServiceImpl<Long, Rating> implem
 
         //TODO без комментариев
         for(Demands o: demands) {
+
+            if (o.getName() == null) {
+                continue;
+            }
+
             List<Rating> ratings = dao.getAllRatingByDemandId(o.getId(), id);
             List<CriteriaRankDto> criteria = new ArrayList<>();
 

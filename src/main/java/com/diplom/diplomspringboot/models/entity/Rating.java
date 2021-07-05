@@ -4,12 +4,12 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
 @Table(name = "rating")
 public class Rating {
 
@@ -28,3 +28,5 @@ public class Rating {
     @JoinColumn(name = "demand_id", nullable = false)
     private Demands demands;
 }
+
+

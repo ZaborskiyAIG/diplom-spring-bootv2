@@ -44,6 +44,7 @@ public class ActivityController {
     @PostMapping("/activity")
     public ResponseEntity<List<ActivityDto>> addActivity(@RequestBody ActivityDto dto) {
         Activity activity = activityConverter.toActivity(dto);
+        activity.setProject(new Project(1L));
         return ResponseEntity.ok(activityDtoService.addActivity(activity));
     }
 

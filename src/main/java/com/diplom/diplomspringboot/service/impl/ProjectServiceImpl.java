@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProjectServiceImpl extends ReadWriteServiceImpl<Long, Project> implements ProjectService {
 
+    ProjectDao projectDao;
+
     public ProjectServiceImpl(ProjectDao dao) {
         super(dao);
+        this.projectDao = projectDao;
     }
 }
